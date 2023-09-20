@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forms_app/presentation/widgets/inputs/custom_text_form_field.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -14,35 +15,73 @@ class RegisterScreen extends StatelessWidget {
   }
 }
 
-
 class _RegisterView extends StatelessWidget {
   const _RegisterView();
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const FlutterLogo(size: 100,),
-
-              TextFormField(),
-
-              const SizedBox(height: 20,),
-
-              FilledButton.tonalIcon(
-                onPressed: (){}, 
-                icon: const Icon(Icons.save_outlined), 
-                label: const Text('Guardar')
+              FlutterLogo(
+                size: 100,
               ),
-
-              const SizedBox(height: 20,)
+              _RegisterForm(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _RegisterForm extends StatelessWidget {
+  const _RegisterForm();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: [
+          
+          const CustomTextFormField(
+            label: 'Nombre de Usuario',
+          ),
+
+        
+          const SizedBox(
+            height: 15,
+          ),
+
+          const CustomTextFormField(
+            label: 'Correo Electrónico',
+          ),
+
+           const SizedBox(
+            height: 15,
+          ),
+
+          const CustomTextFormField(
+            label: 'Contrasena',
+            obscureText: true,
+          ),
+
+          
+          const SizedBox(
+            height: 20,
+          ),
+          FilledButton.tonalIcon(
+              onPressed: () {},
+              icon: const Icon(Icons.save_outlined),
+              label: const Text('Guardar')),
+          const SizedBox(
+            height: 20,
+          )
+        ],
       ),
     );
   }
