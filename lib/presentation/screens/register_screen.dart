@@ -91,8 +91,7 @@ class _RegisterFormState extends State<_RegisterForm> {
                 r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
               );
 
-              if (!emailRegExp.hasMatch(value))
-                return 'No tiene formato de correo';
+              if (!emailRegExp.hasMatch(value)) return 'No tiene formato de correo';
 
               return null;
             },
@@ -119,8 +118,8 @@ class _RegisterFormState extends State<_RegisterForm> {
           ),
           FilledButton.tonalIcon(
               onPressed: () {
-                final isValid = _formKey.currentState!.validate();
-                if (!isValid) return;
+                // final isValid = _formKey.currentState!.validate();
+                // if (!isValid) return;
 
                 registerCubit.onSubmit();
               },
